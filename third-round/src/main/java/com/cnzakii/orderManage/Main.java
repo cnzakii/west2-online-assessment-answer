@@ -1,14 +1,14 @@
-package com.cnzakii;
+package com.cnzakii.orderManage;
 
-import com.cnzakii.dto.OrderDTO;
-import com.cnzakii.dto.ProductDTO;
-import com.cnzakii.entity.Inventory;
-import com.cnzakii.entity.Order;
-import com.cnzakii.entity.Product;
-import com.cnzakii.mapper.InventoryMapper;
-import com.cnzakii.mapper.OrderMapper;
-import com.cnzakii.mapper.ProductMapper;
-import com.cnzakii.util.MybatisUtils;
+import com.cnzakii.orderManage.dto.OrderDTO;
+import com.cnzakii.orderManage.dto.ProductDTO;
+import com.cnzakii.orderManage.entity.Inventory;
+import com.cnzakii.orderManage.entity.Order;
+import com.cnzakii.orderManage.entity.Product;
+import com.cnzakii.orderManage.mapper.InventoryMapper;
+import com.cnzakii.orderManage.mapper.OrderMapper;
+import com.cnzakii.orderManage.mapper.ProductMapper;
+import com.cnzakii.orderManage.util.MybatisUtils;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.apache.ibatis.session.SqlSession;
@@ -146,9 +146,11 @@ public class Main {
             if (inventory == null) {
                 inventory = new Inventory();
                 inventory.setId(productId);
-                inventory.setQuantity(0);
+                inventory.setQuantity(order.getQuantity());
+            } else {
+                inventory.setQuantity(inventory.getQuantity() + order.getQuantity());
+                inventoryMapper.deleteInventoryById(inventory.getId());
             }
-            inventory.setQuantity(inventory.getQuantity() + order.getQuantity());
             inventoryMapper.insertInventory(inventory);
             sqlSession.commit();
         } catch (Exception e) {

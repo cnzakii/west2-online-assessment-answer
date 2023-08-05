@@ -1,6 +1,6 @@
-package com.cnzakii.mapper;
+package com.cnzakii.orderManage.mapper;
 
-import com.cnzakii.entity.Order;
+import com.cnzakii.orderManage.entity.Order;
 
 import java.util.List;
 

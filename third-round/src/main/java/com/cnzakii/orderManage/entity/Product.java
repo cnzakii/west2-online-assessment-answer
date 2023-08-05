@@ -1,4 +1,4 @@
-package com.cnzakii.entity;
+package com.cnzakii.orderManage.entity;
 
 import lombok.Data;
 

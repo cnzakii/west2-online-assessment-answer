@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.cnzakii.mapper.OrderMapper">
-    <resultMap id="OrderResult" type="com.cnzakii.entity.Order">
+<mapper namespace="com.cnzakii.orderManage.mapper.OrderMapper">
+    <resultMap id="OrderResult" type="com.cnzakii.orderManage.entity.Order">
         <id property="id" column="id" jdbcType="INTEGER"/>
         <result property="productId" column="product_id"/>
         <result property="quantity" column="quantity"/>
@@ -10,7 +10,7 @@
 
     </resultMap>
 
-    <insert id="insertOrder" parameterType="com.cnzakii.entity.Order">
+    <insert id="insertOrder" parameterType="com.cnzakii.orderManage.entity.Order">
         insert into `order`(product_id, quantity,create_time) value (#{productId}, #{quantity},#{createTime});
     </insert>
 

@@ -1,4 +1,4 @@
-package com.cnzakii.util;
+package com.cnzakii.orderManage.util;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;

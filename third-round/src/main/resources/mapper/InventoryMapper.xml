@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.cnzakii.mapper.InventoryMapper">
-    <resultMap id="InventoryResult" type="com.cnzakii.entity.Inventory">
+<mapper namespace="com.cnzakii.orderManage.mapper.InventoryMapper">
+    <resultMap id="InventoryResult" type="com.cnzakii.orderManage.entity.Inventory">
         <id property="id" column="id" jdbcType="INTEGER"/>
         <result property="quantity" column="quantity"/>
 
     </resultMap>
 
-    <insert id="insertInventory" parameterType="com.cnzakii.entity.Inventory">
+    <insert id="insertInventory" parameterType="com.cnzakii.orderManage.entity.Inventory">
         insert into inventory(id, quantity) value (#{id}, #{quantity});
     </insert>
 

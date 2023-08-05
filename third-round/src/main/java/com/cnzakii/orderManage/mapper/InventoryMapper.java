@@ -1,6 +1,6 @@
-package com.cnzakii.mapper;
+package com.cnzakii.orderManage.mapper;
 
-import com.cnzakii.entity.Inventory;
+import com.cnzakii.orderManage.entity.Inventory;
 
 /**
  * 库存表的mapper接口

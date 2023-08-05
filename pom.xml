@@ -9,9 +9,9 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <modules>
-        <module>first-round-base</module>
-        <module>second-round-advanced-features</module>
-        <module>third-round-memorandum</module>
+        <module>first-round</module>
+        <module>second-round</module>
+        <module>third-round</module>
     </modules>
 
     <!-- 统一管理jar包版本 -->

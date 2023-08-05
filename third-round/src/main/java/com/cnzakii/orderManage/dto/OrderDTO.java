@@ -1,4 +1,4 @@
-package com.cnzakii.dto;
+package com.cnzakii.orderManage.dto;
 
 import lombok.Getter;
 import lombok.Setter;

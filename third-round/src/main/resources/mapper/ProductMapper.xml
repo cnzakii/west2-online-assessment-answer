@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.cnzakii.mapper.ProductMapper">
-    <resultMap id="productResult" type="com.cnzakii.entity.Product">
+<mapper namespace="com.cnzakii.orderManage.mapper.ProductMapper">
+    <resultMap id="productResult" type="com.cnzakii.orderManage.entity.Product">
         <id property="id" column="id" jdbcType="INTEGER"/>
         <result property="name" column="name"/>
         <result property="price" column="price"/>
     </resultMap>
 
-    <insert id="insertProduct" parameterType="com.cnzakii.entity.Product">
+    <insert id="insertProduct" parameterType="com.cnzakii.orderManage.entity.Product">
         insert into product(name, price) value (#{name}, #{price});
     </insert>
 
-    <update id="updateProductById" parameterType="com.cnzakii.entity.Product">
+    <update id="updateProductById" parameterType="com.cnzakii.orderManage.entity.Product">
         update product
         set name  = #{name},
             price = #{price}
