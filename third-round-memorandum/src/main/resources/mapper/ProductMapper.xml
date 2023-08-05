@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.cnzakii.mapper.ProductMapper">
+    <resultMap id="productResult" type="com.cnzakii.entity.Product">
+        <id property="id" column="id" jdbcType="INTEGER"/>
+        <result property="name" column="name"/>
+        <result property="price" column="price"/>
+    </resultMap>
+
+    <insert id="insertProduct" parameterType="com.cnzakii.entity.Product">
+        insert into product(name, price) value (#{name}, #{price});
+    </insert>
+
+    <update id="updateProductById" parameterType="com.cnzakii.entity.Product">
+        update product
+        set name  = #{name},
+            price = #{price}
+        where id = #{id}
+    </update>
+
+    <delete id="deleteProductById" parameterType="integer">
+        delete
+        from product
+        where id = #{id};
+    </delete>
+
+    <select id="selectProductById" parameterType="integer" resultMap="productResult">
+        select *
+        from product
+        where id = #{id};
+    </select>
+    
+    <select id="selectAll" resultMap="productResult">
+        select *
+        from product
+    </select>
+
+
+
+</mapper>

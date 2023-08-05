@@ -5,7 +5,6 @@ import com.cnzakii.task1.animal.Animal;
 import com.cnzakii.task1.exception.AnimalNotFountException;
 import com.cnzakii.task1.exception.InsufficientBalanceException;
 
-
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
