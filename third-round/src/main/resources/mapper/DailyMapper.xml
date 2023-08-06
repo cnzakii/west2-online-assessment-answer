@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.cnzakii.weather.mapper.DailyMapper">
+
+    <resultMap id="dailyResultMap" type="com.cnzakii.weather.entity.Daily">
+        <id property="id" column="id"/>
+        <result property="locationId" column="locationId"/>
+        <result property="fxDate" column="fxDate"/>
+        <result property="sunrise" column="sunrise"/>
+        <result property="sunset" column="sunset"/>
+        <result property="moonrise" column="moonrise"/>
+        <result property="moonset" column="moonset"/>
+        <result property="moonPhase" column="moonPhase"/>
+        <result property="tempMax" column="tempMax"/>
+        <result property="tempMin" column="tempMin"/>
+        <result property="textDay" column="textDay"/>
+        <result property="textNight" column="textNight"/>
+        <result property="wind360Day" column="wind360Day"/>
+        <result property="windDirDay" column="windDirDay"/>
+        <result property="windScaleDay" column="windScaleDay"/>
+        <result property="windSpeedDay" column="windSpeedDay"/>
+        <result property="wind360Night" column="wind360Night"/>
+        <result property="windDirNight" column="windDirNight"/>
+        <result property="windScaleNight" column="windScaleNight"/>
+        <result property="windSpeedNight" column="windSpeedNight"/>
+        <result property="humidity" column="humidity"/>
+        <result property="precip" column="precip"/>
+        <result property="pressure" column="pressure"/>
+        <result property="vis" column="vis"/>
+        <result property="cloud" column="cloud"/>
+        <result property="uvIndex" column="uvIndex"/>
+    </resultMap>
+
+    <insert id="insertDaily" parameterType="com.cnzakii.weather.entity.Daily">
+        INSERT INTO daily (location_id, fxDate, sunrise, sunset, moonrise, moonset,
+                           moonPhase, tempMax, tempMin, textDay, textNight, wind360Day, windDirDay, windScaleDay,
+                           windSpeedDay, wind360Night, windDirNight, windScaleNight, windSpeedNight, humidity,
+                           precip, pressure, vis, cloud, uvIndex)
+        VALUES (#{locationId}, #{fxDate}, #{sunrise}, #{sunset}, #{moonrise}, #{moonset},
+                #{moonPhase}, #{tempMax}, #{tempMin}, #{textDay}, #{textNight}, #{wind360Day},
+                #{windDirDay}, #{windScaleDay}, #{windSpeedDay}, #{wind360Night}, #{windDirNight},
+                #{windScaleNight}, #{windSpeedNight}, #{humidity}, #{precip}, #{pressure}, #{vis},
+                #{cloud}, #{uvIndex})
+    </insert>
+
+    <delete id="deleteDailyByLocationId" parameterType="map">
+        DELETE
+        FROM daily
+        WHERE location_id = #{LocationId}
+        AND fxDate >= #{today}
+    </delete>
+
+    <select id="getDailyListByLocationId" resultMap="dailyResultMap" parameterType="java.util.Map">
+        SELECT *
+        FROM daily
+        WHERE location_id = #{LocationId}
+          AND fxDate BETWEEN #{startDate} AND #{endDate}
+    </select>
+
+
+</mapper>

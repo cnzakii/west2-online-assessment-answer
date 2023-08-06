@@ -1,4 +1,4 @@
-package com.cnzakii.orderManage.util;
+package com.cnzakii.weather.util;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -21,7 +21,7 @@ public class MybatisUtils {
 
     private static final Logger LOGGER = Logger.getLogger(MybatisUtils.class.getName());
     private static SqlSessionFactory sqlSessionFactory;
-    private static final String resource = "mybatis-order.xml";
+    private static final String resource = "mybatis-weather.xml";
 
     static {
         try {

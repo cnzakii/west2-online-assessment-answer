@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.cnzakii.weather.mapper.LocationMapper">
+
+    <resultMap id="locationResultMap" type="com.cnzakii.weather.entity.Location">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="lat" column="lat"/>
+        <result property="lon" column="lon"/>
+    </resultMap>
+
+
+    <insert id="insertLocation" parameterType="com.cnzakii.weather.entity.Location">
+        INSERT INTO location (id, name, lat, lon)
+        VALUES (#{id}, #{name}, #{lat}, #{lon})
+    </insert>
+
+    <delete id="deleteLocationById" parameterType="String">
+        DELETE FROM location
+        WHERE id = #{id}
+    </delete>
+
+    <select id="getLocationByName" resultMap="locationResultMap" parameterType="String">
+        SELECT id, name, lat, lon
+        FROM location
+        WHERE name = #{name}
+    </select>
+
+</mapper>
